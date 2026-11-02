@@ -2,7 +2,7 @@ pipeline {
     agent any
   environment {
     IMAGE_NAME = 'jenkins-docker-practice:latest'
-      DOCKERHUB_CREDENTIALS = 'dockerhub-token'  // your Docker Hub credentials ID in Jenkins
+      DOCKERHUB_CREDENTIALS = 'docker-hub-token'  // your Docker Hub credentials ID in Jenkins
     DOCKERHUB_REPO = 'pavithradhrithi/jenkins-docker-integration'  // replace with your Docker Hub repo
   }
 
