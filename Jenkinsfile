@@ -38,5 +38,16 @@ pipeline {
         }
       }
     }
+        stage('Pull Docker Image') {
+      steps {
+        bat "docker pull %DOCKERHUB_REPO%:latest"
+      }
+    }
+
+    stage('Deploy Docker Container') {
+      steps {
+        bat 'docker run -d -p 80:3000 --name jen-doc-container %DOCKERHUB_REPO%:latest'
+      }
+    }
 }
 }
