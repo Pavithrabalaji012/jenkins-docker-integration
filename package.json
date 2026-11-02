@@ -1,0 +1,9 @@
+{
+  "name": "jenkins-docker-practice",
+  "version": "1.0.0",
+  "description": "Jenkins Docker Integration Practice",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+}
