@@ -46,7 +46,7 @@ pipeline {
 
     stage('Deploy Docker Container') {
       steps {
-        bat 'docker run -d -p 80:3000 --name jen-doc-container %DOCKERHUB_REPO%:latest'
+        bat 'docker run -d -p 80:3000 --name jen-doc-container %DOCKERHUB_REPO%:latest1'
       }
     }
 }
