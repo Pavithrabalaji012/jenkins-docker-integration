@@ -40,7 +40,7 @@ pipeline {
     }
         stage('Pull Docker Image') {
       steps {
-        bat "docker pull %DOCKERHUB_REPO%:latest"
+        bat "docker pull %DOCKERHUB_REPO%:latest1"
       }
     }
 
