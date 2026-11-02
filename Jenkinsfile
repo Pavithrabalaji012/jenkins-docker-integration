@@ -2,6 +2,8 @@ pipeline {
     agent any
   environment {
     IMAGE_NAME = 'jenkins-docker-practice:latest'
+      DOCKERHUB_CREDENTIALS = 'dockerhub-token'  // your Docker Hub credentials ID in Jenkins
+    DOCKERHUB_REPO = 'pavithradhrithi/jenkins-docker-integration'  // replace with your Docker Hub repo
   }
 
     stages {
@@ -24,5 +26,17 @@ pipeline {
         bat "docker images"
       }
     }
+
+    stage('Docker Login and Push') {
+      steps {
+        withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+          bat """
+            docker login -u %DOCKER_USER% -p %DOCKER_PASS%
+            docker tag %IMAGE_NAME% %DOCKERHUB_REPO%:latest1
+            docker push %DOCKERHUB_REPO%:latest1
+          """
+        }
+      }
     }
+}
 }
